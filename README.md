@@ -443,4 +443,18 @@ If you encounter any issues or have questions, please:
 
 ---
 
-Thank you for your interest in the **Human Activity Recognition (HAR) System**! We hope this project serves as a valuable resource and foundation for your own HAR endeavors.
+---
+
+<div align="center">
+
+[Home](Home) • [Getting Started](Getting-Started) • [Project Overview](Project-Overview) • [Contributing](Contributing) • [FAQ](FAQ)
+
+[![GitHub stars](https://img.shields.io/github/stars/mcochranca/HAR?style=social)](https://github.com/mcochranca/HAR/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/mcochranca/HAR?style=social)](https://github.com/yourusername/har-system/network/members)
+
+[![Twitter Follow](https://img.shields.io/twitter/follow/igeniusly?style=social)](https://twitter.com/igeniusly)
+
+<sub>© 2023 HAR System Project. All rights reserved.</sub>
+
+</div>
+
