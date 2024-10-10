@@ -53,6 +53,19 @@ const Dashboard: React.FC = () => {
   };
 
   return (
+    <div className="container mx-auto px-6 py-8">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        {/* Sidebar */}
+        <aside className="lg:col-span-1">
+          {/* Sidebar content */}
+        </aside>
+    
+        {/* Main Content */}
+        <main className="lg:col-span-3">
+          {/* Main content */}
+        </main>
+      </div>
+    </div>
     <div className="space-y-6">
       <h1 className="text-3xl font-bold">Human Activity Recognition Dashboard</h1>
       <div className="bg-white shadow rounded-lg p-6">
