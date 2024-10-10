@@ -26,3 +26,22 @@ export default tseslint.config(
     },
   }
 );
+
+// eslint.config.js
+
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: './tsconfig.json',
+  },
+  extends: [
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react-hooks/recommended',
+    'eslint:recommended',
+  ],
+  plugins: ['react', '@typescript-eslint'],
+  rules: {
+    // Add custom rules if needed
+  },
+};
