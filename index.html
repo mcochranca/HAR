@@ -1,13 +1,59 @@
 <!doctype html>
+<!-- index.html -->
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <!-- Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self';" />
+  
+  <!-- Page Title -->
+  <title>Human Activity Recognition (HAR) System</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Manifest for PWA support (optional) -->
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Preconnect to improve performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Google Fonts (optional, remove if not used) -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet"  />
+
+  <!-- Tailwind CSS (injected by Vite during build) -->
+  <!-- No need to include Tailwind CSS link here; it's imported in your index.css -->
+
+  <!-- Global Styles (optional) -->
+   <link rel="stylesheet" href="/styles/global.css" />
+
+  <!-- Meta Tags for SEO -->
+  <meta name="description" content="A scalable, ontology-based, fully probabilistic Human Activity Recognition system." />
+  <meta name="keywords" content="Human Activity Recognition, HAR, Ontology, Probabilistic Reasoning, AI, Machine Learning" />
+
+  <!-- Open Graph Meta Tags for social sharing (optional) -->
+  <meta property="og:title" content="Human Activity Recognition (HAR) System" />
+  <meta property="og:description" content="A scalable, ontology-based, fully probabilistic Human Activity Recognition system." />
+  <meta property="og:image" content="/images/har-system-thumbnail.png" />
+  <meta property="og:url" content="https://yourdomain.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body class="antialiased text-gray-800">
+  <!-- Root Div for React -->
+  <div id="root"></div>
+
+  <!-- Vite Script -->
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script type="module" src="/src/main.tsx"></script>
+  <!-- The script tag is automatically injected by Vite during development and build -->
+</body>
 </html>
