@@ -1,16 +1,36 @@
+/* src/index.css */
+
+/* Import Tailwind CSS directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* index.css */
 
-.loader {
-    border-top-color: #3490dc;
-    animation: spinner 1.5s linear infinite;
-  }
-  
-  @keyframes spinner {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-  
+/* Custom Global Styles */
+
+/* Body Styles */
+body {
+  @apply bg-gray-50 text-gray-800 font-sans;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-semibold text-gray-900;
+}
+
+/* Links */
+a {
+  @apply text-primary hover:text-primary-dark transition-colors duration-200;
+}
+
+/* Button Styles */
+.button {
+  @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.button-primary {
+  @apply text-white bg-primary hover:bg-blue-700 focus:ring-primary;
+}
+
+.button-secondary {
+  @apply text-primary bg-white border border-primary hover:bg-gray-100 focus:ring-primary;
+}
