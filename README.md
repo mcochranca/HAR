@@ -437,9 +437,9 @@ Interactive elements incorporate hover effects to provide immediate feedback.
 
 If you encounter any issues or have questions, please:
 
-- Check the [Issues](https://github.com/yourusername/har-system/issues) section to see if the problem has already been reported.
+- Check the [Issues](https://github.com/mcochranca/HAR/issues) section to see if the problem has already been reported.
 - Open a new issue with detailed information about the problem.
-- Contact the maintainer at [your.email@example.com](mailto:your.email@example.com) for direct assistance.
+- Contact the maintainer at [mcochran@sagelyf.com](mailto:mcohran@sagelyf.com) for direct assistance.
 
 ---
 
