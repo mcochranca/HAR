@@ -1,8 +1,10 @@
 # **Human Activity Recognition (HAR) System**
 
-This repository contains a demo implementation of a scalable, ontology-based, fully probabilistic Human Activity Recognition (HAR) system. The system is based on the framework described in the paper:
+This repository contains a demo implementation of a scalable, ontology-based, fully probabilistic Human Activity Recognition (HAR) system. The system is inspired by the framework described in the paper:
 
 **"An Ontology-Based, Fully Probabilistic, Scalable Method for Human Activity Recognition" by Pouya Foudeh and Naomie Salim**
+
+*[Access the paper here](https://arxiv.org/pdf/2109.02902)*
 
 ---
 
@@ -19,6 +21,7 @@ This repository contains a demo implementation of a scalable, ontology-based, fu
 - [Contributing](#contributing)
 - [License](#license)
 - [References](#references)
+- [Acknowledgments](#acknowledgments)
 
 ---
 
@@ -28,6 +31,18 @@ This project demonstrates a Human Activity Recognition system that handles uncer
 
 The implementation follows the framework described in the referenced paper, providing a practical example of how to apply probabilistic reasoning and ontological modeling in HAR systems.
 
+**Inspiration from the Paper:**
+
+The paper addresses the challenges of uncertainty and scalability in HAR systems by proposing a method that:
+
+- Utilizes probabilistic ontologies to model human activities based on sensor data.
+- Maintains multiple candidate activities with confidence levels rather than selecting only the most probable one.
+- Implements the ontology and reasoning processes using relational databases for efficiency and scalability.
+- Introduces data smoothing techniques to improve the accuracy of predictions.
+- Demonstrates improved performance over traditional methods like k-NN and lattice-based approaches.
+
+Our implementation aims to bring these concepts into a functional demo, showcasing the practical application of the proposed methods.
+
 ---
 
 ## **Features**
@@ -35,7 +50,7 @@ The implementation follows the framework described in the referenced paper, prov
 - **Probabilistic Reasoning**: Handles uncertainties in sensor data by maintaining probabilities for multiple activity candidates.
 - **Ontology-Based Modeling**: Uses ontologies to represent activities, sensors, and their relationships.
 - **Scalable Architecture**: Employs relational databases for efficient storage and processing of large datasets.
-- **Modular Design**: Components are organized into modules for sensor data collection, preprocessing, reasoning, and user interaction.
+- **Data Smoothing**: Implements probabilistic data smoothing techniques to enhance prediction accuracy.
 - **Customizable Axioms**: Allows users to define or adjust assertion axioms that relate low-level observations to high-level activities.
 - **User Interface**: Provides a simple GUI for monitoring recognized activities and editing axioms.
 
@@ -242,7 +257,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## **References**
 
-- **Paper**: Pouya Foudeh and Naomie Salim, *An Ontology-Based, Fully Probabilistic, Scalable Method for Human Activity Recognition*. [Link to Paper](#) (Replace with actual link if available)
+- **Paper**: Pouya Foudeh and Naomie Salim, *An Ontology-Based, Fully Probabilistic, Scalable Method for Human Activity Recognition*. [Access the Paper](https://arxiv.org/pdf/2109.02902)
 - **Owlready2 Documentation**: [https://owlready2.readthedocs.io](https://owlready2.readthedocs.io)
 - **SQLite Documentation**: [https://www.sqlite.org/docs.html](https://www.sqlite.org/docs.html)
 
@@ -250,14 +265,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## **Acknowledgments**
 
-We would like to thank Pouya Foudeh and Naomie Salim for their foundational work in probabilistic ontology-based human activity recognition, which this project is based upon.
+We would like to thank Pouya Foudeh and Naomie Salim for their foundational work in probabilistic ontology-based human activity recognition, which inspired this project.
 
 ---
 
 ## **Contact**
 
-For questions or suggestions, please open an issue or contact [your.email@example.com](mailto:your.email@example.com).
+For questions or suggestions, please open an issue or contact [mcochran@sagelyf.com](mailto:mcochran@sagelyf.com).
 
 ---
 
-*This README was generated to provide comprehensive guidance on setting up and using the HAR system based on the framework described in the referenced paper.*
+*This README provides comprehensive guidance on setting up and using the HAR system based on the framework described in the referenced paper.*
