@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Dashboard from './components/Dashboard';
-import AxiomEditor from './components/AxiomEditor';
-import Navbar from './components/Navbar';
+import Dashboard from './ui/components/Dashboard';
+import AxiomEditor from './ui/components/AxiomEditor';
+import Navbar from './ui/components/Navbar';
 
 function App() {
   return (
