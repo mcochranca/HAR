@@ -46,3 +46,8 @@ jobs:
     # Run the post step to save the cache even if another step before fails
     save-always: # optional, default is false
           
+              - name: Dastardly Scan Action
+                uses: PortSwigger/              - name: Dastardly Scan Action
+                uses: PortSwigger/dastardly-github-action@v1.0.0
+            dastardly-github-action@v1.0.0
+            
