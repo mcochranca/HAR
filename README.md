@@ -1,5 +1,7 @@
 <p><a target="_blank" href="https://app.eraser.io/workspace/UBGG1SoqCKGBPdUJi6ng" id="edit-in-eraser-github-link"><img alt="Edit in Eraser" src="https://firebasestorage.googleapis.com/v0/b/second-petal-295822.appspot.com/o/images%2Fgithub%2FOpen%20in%20Eraser.svg?alt=media&amp;token=968381c8-a7e7-472a-8ed6-4a6626da5501"></a></p>
 
+![image.png](/.eraser/UBGG1SoqCKGBPdUJi6ng___hw7rM9QqLIYPmYTUeZRQxMQAysP2___83rBsaCuvXdtlCfzF1qiB.png "image.png")
+
 
 
 # **Human Activity Recognition (HAR) System**
@@ -7,10 +9,8 @@ Welcome to the **Human Activity Recognition (HAR) System** repository. This proj
 
 ---
 
-[﻿View on canvas](https://app.eraser.io/workspace/UBGG1SoqCKGBPdUJi6ng?elements=wUmSqL6fv7x2zU2PnWC8-g) 
-
 ```
-<a href="https://app.eraser.io/workspace/UBGG1SoqCKGBPdUJi6ng?elements=_Pa2Cx1LlOGpxr8wYcFUxQ">View on Eraser<br /><img src="https://app.eraser.io/workspace/UBGG1SoqCKGBPdUJi6ng/preview?elements=_Pa2Cx1LlOGpxr8wYcFUxQ&type=embed" /></a>
+
 ```
 ## **Table of Contents**
 - [﻿Introduction](#introduction) 
@@ -165,6 +165,14 @@ har-system/
 ---
 
 ## **Configuration**
+
+
+![image.png](/.eraser/UBGG1SoqCKGBPdUJi6ng___hw7rM9QqLIYPmYTUeZRQxMQAysP2___luntrk9xWZP2YChdsNjG0.png "image.png")
+
+
+
+
+
 The `config.ts` file contains configuration settings for the application.
 
 ```typescript
@@ -328,6 +336,7 @@ If you encounter any issues or have questions, please:
 ## Diagrams
 <!-- eraser-additional-files -->
 <a href="/README-HAR System Directory Structure-1.eraserdiagram" data-element-id="5m3g4A2oZkngaplvsrL2z"><img src="/.eraser/UBGG1SoqCKGBPdUJi6ng___hw7rM9QqLIYPmYTUeZRQxMQAysP2___---diagram----dbf79192b3e99060d76377e2f125bb34-HAR-System-Directory-Structure.png" alt="" data-element-id="5m3g4A2oZkngaplvsrL2z" /></a>
+<a href="/README-Configuration Flow Chart-2.eraserdiagram" data-element-id="v-y1W91oA_FlVb21Q1MVD"><img src="/.eraser/UBGG1SoqCKGBPdUJi6ng___hw7rM9QqLIYPmYTUeZRQxMQAysP2___---diagram----e8edfd85d60a035c0b7a6bd1fe264bfd-Configuration-Flow-Chart.png" alt="" data-element-id="v-y1W91oA_FlVb21Q1MVD" /></a>
 <!-- end-eraser-additional-files -->
 <!-- end-eraser-additional-content -->
 <!--- Eraser file: https://app.eraser.io/workspace/UBGG1SoqCKGBPdUJi6ng --->

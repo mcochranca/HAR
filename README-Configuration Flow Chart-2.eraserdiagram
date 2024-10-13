@@ -1,0 +1,16 @@
+flowchart-diagram
+
+title Configuration Flow Chart
+
+// Define nodes and relationships "A > B"
+// Set shape and icon properties in "[]"
+// Add labels to relationships after ":"
+
+Start Configuration [shape: oval, icon: settings] > Set Database Name [icon: database]
+Set Database Name > Set Sensor IDs [icon: list]
+Set Sensor IDs > Set Sampling Rate [icon: clock]
+Set Sampling Rate > Set Ontology File [icon: file-text]
+Set Ontology File > Set WebSocket Port [icon: globe]
+Set WebSocket Port > Configuration Complete [shape: oval, icon: check-square]
+
+
