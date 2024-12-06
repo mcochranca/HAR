@@ -1,0 +1,51 @@
+flowchart-diagram
+
+title HAR System Directory Structure
+
+// Define the main directories and files
+Start [shape: oval, icon: folder] > har-system [icon: folder]
+har-system > src [icon: folder]
+har-system > public [icon: folder]
+har-system > .gitignore [icon: file-text]
+har-system > package.json [icon: file-text]
+har-system > tsconfig.json [icon: file-text]
+har-system > vite.config.ts [icon: file-text]
+har-system > tailwind.config.js [icon: file-text]
+har-system > postcss.config.js [icon: file-text]
+har-system > README.md [icon: file-text]
+har-system > LICENSE [icon: file-text]
+
+// Define the src directory structure
+src > classification [icon: folder]
+src > config [icon: folder]
+src > context [icon: folder]
+src > database [icon: folder]
+src > ontology [icon: folder]
+src > preprocessing [icon: folder]
+src > reasoning [icon: folder]
+src > sensors [icon: folder]
+src > services [icon: folder]
+src > ui [icon: folder]
+src > main.tsx [icon: file-text]
+
+// Define the config directory structure
+config > config.example.ts [icon: file-text]
+config > config.ts [icon: file-text]
+
+// Define the ui directory structure
+ui > components [icon: folder]
+ui > pages [icon: folder]
+ui > App.tsx [icon: file-text]
+ui > index.css [icon: file-text]
+ui > index.tsx [icon: file-text]
+
+// Define the pages directory structure
+pages > AdminDashboard.tsx [icon: file-text]
+pages > UserDashboard.tsx [icon: file-text]
+pages > AxiomEditor.tsx [icon: file-text]
+pages > LoginPage.tsx [icon: file-text]
+pages > NotFoundPage.tsx [icon: file-text]
+
+// Define the public directory structure
+public > index.html [icon: file-text]
+
