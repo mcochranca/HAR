@@ -11,13 +11,23 @@ const UserDashboard = lazy(() => import('./UserDashboard'));
 const AdminDashboard = lazy(() => import('./AdminDashboard'));
 const AxiomEditor = lazy(() => import('./components/AxiomEditor'));
 const LoginPage = lazy(() => import('./LoginPage'));
+const OnboardingPage = lazy(() => import('./OnboardingPage'));
 const NotFoundPage = lazy(() => import('./NotFoundPage'));
 // Sample page demonstrating the loading spinner
 const SpinnerDemo = lazy(() => import('./SpinnerDemo'));
 
 const ProtectedRoute: React.FC<{ children: JSX.Element }> = ({ children }) => {
-  const { isAdmin } = useAuth();
-  return isAdmin ? children : <Navigate to="/login" />;
+  const { user, onboardingComplete } = useAuth();
+  if (!user) return <Navigate to="/login" />;
+  if (!onboardingComplete) return <Navigate to="/onboarding" />;
+  return children;
+};
+
+const OnboardingRoute: React.FC<{ children: JSX.Element }> = ({ children }) => {
+  const { user, onboardingComplete } = useAuth();
+  if (!user) return <Navigate to="/login" />;
+  if (onboardingComplete) return <Navigate to="/admin" />;
+  return children;
 };
 
 const App: React.FC = () => {
@@ -29,6 +39,14 @@ const App: React.FC = () => {
             <Routes>
               <Route path="/" element={<UserDashboard />} />
               <Route path="/login" element={<LoginPage />} />
+              <Route
+                path="/onboarding"
+                element={
+                  <OnboardingRoute>
+                    <OnboardingPage />
+                  </OnboardingRoute>
+                }
+              />
               {/* Route to visualize the loading spinner */}
               <Route path="/spinner" element={<SpinnerDemo />} />
               <Route

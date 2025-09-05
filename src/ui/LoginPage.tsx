@@ -7,7 +7,7 @@ import Input from './components/Input';
 import Button from './components/Button';
 
 const LoginPage: React.FC = () => {
-  const { loginAsAdmin } = useAuth();
+  const { login } = useAuth();
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({ username: '', password: '' });
   const [error, setError] = useState('');
@@ -15,8 +15,8 @@ const LoginPage: React.FC = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await loginAsAdmin(credentials.username, credentials.password);
-      navigate('/admin');
+      await login(credentials.username, credentials.password);
+      navigate('/onboarding');
     } catch (err) {
       setError('Invalid username or password');
     }

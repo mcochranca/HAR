@@ -2,7 +2,7 @@ const mockLogin = jest.fn();
 const mockNavigate = jest.fn();
 
 jest.mock('../../context/AuthContext', () => ({
-  useAuth: () => ({ loginAsAdmin: mockLogin }),
+  useAuth: () => ({ login: mockLogin }),
 }));
 
 jest.mock('react-router-dom', () => ({
@@ -24,13 +24,13 @@ describe('LoginPage', () => {
       </MemoryRouter>
     );
 
-    const usernameInput = screen.getByText('Username').nextElementSibling as HTMLInputElement;
-    const passwordInput = screen.getByText('Password').nextElementSibling as HTMLInputElement;
+    const usernameInput = screen.getByLabelText('Username') as HTMLInputElement;
+    const passwordInput = screen.getByLabelText('Password') as HTMLInputElement;
     await userEvent.type(usernameInput, 'admin');
     await userEvent.type(passwordInput, 'password');
     await userEvent.click(screen.getByRole('button', { name: /login/i }));
 
     expect(mockLogin).toHaveBeenCalledWith('admin', 'password');
-    expect(mockNavigate).toHaveBeenCalledWith('/admin');
+    expect(mockNavigate).toHaveBeenCalledWith('/onboarding');
   });
 });
