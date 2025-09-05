@@ -1,12 +1,31 @@
 // src/ui/pages/AdminDashboard.tsx
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import Navbar from '../components/Navbar';
 
 const AdminDashboard: React.FC = () => {
-  // ... existing code ...
+  const navigate = useNavigate();
+
+  const startSystem = async () => {
+    try {
+      await fetch('/api/system/start', { method: 'POST' });
+      navigate('/admin');
+    } catch (error) {
+      console.error('Failed to start system:', error);
+    }
+  };
+
+  const stopSystem = async () => {
+    try {
+      await fetch('/api/system/stop', { method: 'POST' });
+      navigate('/admin');
+    } catch (error) {
+      console.error('Failed to stop system:', error);
+    }
+  };
 
   return (
     <div className="bg-gray-100 min-h-screen">

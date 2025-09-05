@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
+import { Axiom } from '../../reasoning/assertionAxioms';
+import { saveAxiom } from '../../services/axiomService';
 
 const AxiomEditor: React.FC = () => {
-  const [lowLevelActivity, setLowLevelActivity] = useState<string>('');
-  const [highLevelActivity, setHighLevelActivity] = useState<string>('');
-  const [probability, setProbability] = useState<string>('');
+  const [lowLevelActivity, setLowLevelActivity] = useState('');
+  const [highLevelActivity, setHighLevelActivity] = useState('');
+  const [probability, setProbability] = useState(0);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement axiom saving logic
-    console.log('Axiom saved:', { lowLevelActivity, highLevelActivity, probability });
+    const axiom: Axiom = { lowLevelActivity, highLevelActivity, probability };
+    saveAxiom(axiom);
     // Reset form
     setLowLevelActivity('');
     setHighLevelActivity('');
-    setProbability('');
+    setProbability(0);
   };
 
   return (
@@ -53,7 +55,7 @@ const AxiomEditor: React.FC = () => {
             type="number"
             id="probability"
             value={probability}
-            onChange={(e) => setProbability(e.target.value)}
+            onChange={(e) => setProbability(parseFloat(e.target.value))}
             min="0"
             max="1"
             step="0.01"

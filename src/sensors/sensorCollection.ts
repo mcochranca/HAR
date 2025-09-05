@@ -1,6 +1,7 @@
 // src/sensors/sensorCollection.ts
 
 import { SENSOR_IDS, SAMPLING_RATE } from '../config/config';
+import { DataPreprocessor } from '../preprocessing/dataPreprocessing';
 
 interface SensorData {
   sensorId: number;
@@ -30,10 +31,12 @@ class Sensor {
 class SensorManager {
   sensors: Sensor[];
   running: boolean;
+  dataPreprocessor: DataPreprocessor;
 
-  constructor(sensorIds: number[]) {
+  constructor(sensorIds: number[], dataPreprocessor: DataPreprocessor) {
     this.sensors = sensorIds.map((id) => new Sensor(id));
     this.running = false;
+    this.dataPreprocessor = dataPreprocessor;
   }
 
   startCollection() {
@@ -47,11 +50,11 @@ class SensorManager {
 
   async collectData() {
     while (this.running) {
-      for (const sensor of this.sensors) {
-        const dataPoint = sensor.readData();
-        // TODO: Send dataPoint to the data preprocessing module
-        console.log(`Collected data: ${JSON.stringify(dataPoint)}`);
-      }
+        for (const sensor of this.sensors) {
+          const dataPoint = sensor.readData();
+          // Send dataPoint to the data preprocessing module
+          this.dataPreprocessor.enqueueRawData(dataPoint);
+        }
       await this.sleep(SAMPLING_RATE * 1000);
     }
   }

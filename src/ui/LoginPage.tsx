@@ -1,10 +1,10 @@
 // src/ui/pages/LoginPage.tsx
 
 import React, { useState } from 'react';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
-import Input from '../components/Input';
-import Button from '../components/Button';
+import Input from './components/Input';
+import Button from './components/Button';
 
 const LoginPage: React.FC = () => {
   const { loginAsAdmin } = useAuth();
