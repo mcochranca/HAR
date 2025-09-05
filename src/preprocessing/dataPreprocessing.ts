@@ -3,6 +3,8 @@
 import { SensorData } from '../sensors/sensorCollection';
 import { extractFeaturesFromData } from './featureExtraction';
 import { classifyLowLevelActivity } from '../classification/classifier';
+import { OntologyPopulator } from '../ontology/ontologyPopulation';
+import { DatabaseManager } from '../database/databaseManager';
 
 interface ProcessedData {
   timestamp: number;
@@ -13,10 +15,14 @@ interface ProcessedData {
 class DataPreprocessor {
   rawDataQueue: SensorData[];
   processedDataQueue: ProcessedData[];
+  ontologyPopulator: OntologyPopulator;
+  dbManager: DatabaseManager;
 
-  constructor() {
+  constructor(ontologyPopulator: OntologyPopulator, dbManager: DatabaseManager) {
     this.rawDataQueue = [];
     this.processedDataQueue = [];
+    this.ontologyPopulator = ontologyPopulator;
+    this.dbManager = dbManager;
   }
 
   enqueueRawData(dataPoint: SensorData) {
@@ -36,8 +42,9 @@ class DataPreprocessor {
           probabilities,
         };
         this.processedDataQueue.push(processedData);
-        // TODO: Send processedData to ontology population module
-        console.log(`Processed data: ${JSON.stringify(processedData)}`);
+        // Forward processed data to ontology and database services
+        this.ontologyPopulator.addInstance(processedData);
+        void this.dbManager.insertInstance(processedData);
       }
     }
   }
