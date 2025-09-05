@@ -18,11 +18,11 @@ import { DatabaseManager } from './database/databaseManager';
 import { SENSOR_IDS } from './config/config';
 
 // Initialize components
-const sensorManager = new SensorManager(SENSOR_IDS);
-const dataPreprocessor = new DataPreprocessor();
 const ontologyPopulator = new OntologyPopulator();
-const reasoner = new ProbabilisticReasoner();
 const dbManager = new DatabaseManager();
+const dataPreprocessor = new DataPreprocessor(ontologyPopulator, dbManager);
+const sensorManager = new SensorManager(SENSOR_IDS, dataPreprocessor);
+const reasoner = new ProbabilisticReasoner();
 
 async function main() {
   await dbManager.initialize();
@@ -41,12 +41,6 @@ async function main() {
         // Infer high-level activities
         const highLevelProbabilities = reasoner.inferHighLevelActivity(processedData.probabilities);
         console.log(`High-Level Probabilities: ${JSON.stringify(highLevelProbabilities)}`);
-
-        // Populate ontology
-        ontologyPopulator.addInstance(processedData);
-
-        // Insert into database
-        dbManager.insertInstance(processedData);
 
         // TODO: Update UI or take other actions
       }
