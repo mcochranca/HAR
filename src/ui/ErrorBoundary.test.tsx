@@ -1,8 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { describe, it, expect, vi } from 'vitest';
 import ErrorBoundary from './ErrorBoundary';
-import '@testing-library/jest-dom/vitest';
+import '@testing-library/jest-dom';
 
 const Boom: React.FC = () => {
   throw new Error('Boom');
@@ -10,7 +9,7 @@ const Boom: React.FC = () => {
 
 describe('ErrorBoundary', () => {
   it('renders fallback UI when child throws', () => {
-    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(
       <ErrorBoundary>
         <Boom />
