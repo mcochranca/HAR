@@ -1,33 +1,59 @@
 // src/context/AuthContext.tsx
 
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useReducer, useContext, useEffect } from 'react';
 
-interface AuthContextType {
-  isAdmin: boolean;
-  loginAsAdmin: (username: string, password: string) => Promise<void>;
-  logout: () => void;
+interface AuthState {
+  user: string | null;
+  onboardingComplete: boolean;
 }
+
+type AuthAction =
+  | { type: 'LOGIN'; username: string }
+  | { type: 'LOGOUT' }
+  | { type: 'COMPLETE_ONBOARDING' };
+
+interface AuthContextType extends AuthState {
+  login: (username: string, password: string) => Promise<void>;
+  logout: () => void;
+  completeOnboarding: () => void;
+}
+
+const initialState: AuthState = { user: null, onboardingComplete: false };
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
+function authReducer(state: AuthState, action: AuthAction): AuthState {
+  switch (action.type) {
+    case 'LOGIN':
+      return { ...state, user: action.username };
+    case 'LOGOUT':
+      return { user: null, onboardingComplete: false };
+    case 'COMPLETE_ONBOARDING':
+      return { ...state, onboardingComplete: true };
+    default:
+      return state;
+  }
+}
+
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isAdmin, setIsAdmin] = useState<boolean>(false);
-
-  // Load authentication state from localStorage on mount
-  useEffect(() => {
-    const storedIsAdmin = localStorage.getItem('isAdmin');
-    if (storedIsAdmin === 'true') {
-      setIsAdmin(true);
+  const [state, dispatch] = useReducer(authReducer, initialState, () => {
+    try {
+      const stored = localStorage.getItem('auth');
+      return stored ? JSON.parse(stored) : initialState;
+    } catch {
+      return initialState;
     }
-  }, []);
+  });
 
-  // Function to handle admin login
-  const loginAsAdmin = async (username: string, password: string): Promise<void> => {
+  useEffect(() => {
+    localStorage.setItem('auth', JSON.stringify(state));
+  }, [state]);
+
+  const login = async (username: string, password: string): Promise<void> => {
     return new Promise((resolve, reject) => {
-      // Simulate authentication
+      // Replace with real authentication logic
       if (username === 'admin' && password === 'password') {
-        setIsAdmin(true);
-        localStorage.setItem('isAdmin', 'true');
+        dispatch({ type: 'LOGIN', username });
         resolve();
       } else {
         reject(new Error('Invalid credentials'));
@@ -35,14 +61,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     });
   };
 
-  // Function to handle logout
   const logout = (): void => {
-    setIsAdmin(false);
-    localStorage.removeItem('isAdmin');
+    dispatch({ type: 'LOGOUT' });
+  };
+
+  const completeOnboarding = (): void => {
+    dispatch({ type: 'COMPLETE_ONBOARDING' });
   };
 
   return (
-    <AuthContext.Provider value={{ isAdmin, loginAsAdmin, logout }}>
+    <AuthContext.Provider value={{ ...state, login, logout, completeOnboarding }}>
       {children}
     </AuthContext.Provider>
   );
@@ -55,20 +83,3 @@ export const useAuth = (): AuthContextType => {
   }
   return context;
 };
-
-/**
- * Notes:
- *
- * - Authentication State:
- *   - Manages `isAdmin` state to control access to admin routes.
- *
- * - Persistent Login:
- *   - Synchronizes login state with `localStorage` to persist across sessions.
- *   - Ensures `isAdmin` is initialized on app load.
- *
- * - Context API:
- *   - Provides `loginAsAdmin` and `logout` functions for authentication management.
- *
- * - Error Handling:
- *   - Throws an error if `useAuth` is used outside of `AuthProvider`.
- */
