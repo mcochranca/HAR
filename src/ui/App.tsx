@@ -9,7 +9,7 @@ import LoadingSpinner from './components/LoadingSpinner'; // A spinner component
 // Lazy-loaded components
 const UserDashboard = lazy(() => import('./UserDashboard'));
 const AdminDashboard = lazy(() => import('./AdminDashboard'));
-const AxiomEditor = lazy(() => import('./AxiomEditor'));
+const AxiomEditor = lazy(() => import('./components/AxiomEditor'));
 const LoginPage = lazy(() => import('./LoginPage'));
 const NotFoundPage = lazy(() => import('./NotFoundPage'));
 
