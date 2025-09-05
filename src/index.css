@@ -34,3 +34,13 @@ a {
 .button-secondary {
   @apply text-primary bg-white border border-primary hover:bg-gray-100 focus:ring-primary;
 }
+
+/* Loading Spinner */
+.loader {
+  /* Size and shape */
+  @apply w-16 h-16 border-4 rounded-full;
+  /* Only show three-quarters of the border to create the spinner effect */
+  @apply border-blue-500 border-t-transparent;
+  /* Animation */
+  @apply animate-spin;
+}
