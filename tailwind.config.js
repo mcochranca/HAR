@@ -10,7 +10,9 @@ module.exports = {
       keyframes: {
         fadeIn: {
           '0%': { opacity: 0 },
-          '100%': { opacity: 1 }, // Example fade in animation 
+          '100%': { opacity: 1 }, // Example fade in animation
+        },
+      },
       colors: {
         primary: '#2563eb', // Custom primary color
         secondary: '#1e293b', // Custom secondary color
